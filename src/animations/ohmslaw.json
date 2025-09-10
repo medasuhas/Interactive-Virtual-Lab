@@ -1,0 +1,25 @@
+import React from 'react';
+import { useSpring, animated } from 'react-spring';
+// Import animations JSON
+import animationsData from './animations/ohmslaw.json'; // Adjust path as necessary
+
+const AnimationComponent = () => {
+  const { animations } = animationsData;
+  
+  const ohmsLawAnimation = useSpring({
+    // Define animation properties based on the loaded JSON
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: { duration: animations.ohmslaw.settings.duration }
+  });
+
+  return (
+    <animated.div style={ohmsLawAnimation}>
+      {/* Render the animation here */}
+      <h1>Ohm's Law Animation</h1>
+      {/* Further rendering logic like graph, etc. */}
+    </animated.div>
+  );
+};
+
+export default AnimationComponent;
